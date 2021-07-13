@@ -17,10 +17,6 @@ button {
 output {
   float: right;
   font-family:'Bungee', cursive;
-  color: if (newCounter < 0 ) {
-        red;
-  };
-
 }
 
 .text-area {
@@ -35,3 +31,7 @@ output {
   outline: none;
 
 }
+
+.colorRed {
+  color:red;
+};
