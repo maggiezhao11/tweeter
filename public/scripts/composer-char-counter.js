@@ -1,13 +1,13 @@
 $(document).ready(function() {
-  $("#tweet-text").on('change', function() {
+  $("#tweet-text").on('input', function() {
     const length = $(this).val().length;
     const counterNum = $(this).closest("#userInput").find(".counter")
     const newCounter = 140 - length;
     counterNum.text(newCounter);  
     if ( (newCounter) < 0 ) {
-      $counterNum.addClass("colorRed");
+      $(counterNum).addClass("colorRed");
     } else {
-      $counterNum.removeClass("colorRed");
+      $(counterNum).removeClass("colorRed");
     }
 });
 
