@@ -1,0 +1,37 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+label {
+  float: left;
+}
+
+button {
+  background-color: #4056A1;
+  color: #FFFF;
+  font-family:'Bungee', cursive;
+  float: left;
+}
+output {
+  float: right;
+  font-family:'Bungee', cursive;
+  color: if (newCounter < 0 ) {
+        red;
+  };
+
+}
+
+.text-area {
+  display:block;
+  border:none;
+  border-bottom: 3px solid #000;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+
+}

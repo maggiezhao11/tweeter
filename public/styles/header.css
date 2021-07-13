@@ -1,0 +1,10 @@
+body > header { 
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-color:pink;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
+}
