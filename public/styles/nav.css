@@ -22,7 +22,7 @@ nav {
   flex-direction: column;
 }
 
-.fas {
+nav i {
   padding-left: 80px;
   color: red;
 }

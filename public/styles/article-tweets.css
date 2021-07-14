@@ -1,25 +1,31 @@
 .tweetsContainer {
-  width:100%;
+  width:90%;
+  border: 2px solid black;
 }
 
 .tweets {
   display:flex;
   flex-direction:column;
-  border: 2px solid black;
-  width:90%;
   padding: 2px;
   margin: 2px;
 }
 
-.tweets:hover {
-  box-shadow: 5px 10px aqua;
+.tweetsContainer:hover {
+  box-shadow: 5px 5px aqua;
 }
 
-
+.tweets img {
+  height: 40px;
+}
+.tweets span {
+  font-size: 18px;
+}
 header.tweets-header {
   display:flex;
   justify-content:space-between;
   flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
 
 }
 
@@ -27,21 +33,27 @@ header.tweets-header-left {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* height:20px; */
 }
 
 .text {
   border-bottom: 3px solid #000;
+  padding: 10px;
+  font-size: 18px;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .userAccount {
   color:lightgrey;
-  font-size: 20px;
 }
 
 footer {
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 10px;
+  font:bold;
 }
 
 .icon {
@@ -54,6 +66,7 @@ footer {
 .icon i {
   color:#4056A1;
   justify-content: flex-end;
+  padding-left: 10px;
 }
 
 footer p {
@@ -62,6 +75,10 @@ footer p {
 }
 
 .footerDisplay {
-  flex-direction: column;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
 
 }
