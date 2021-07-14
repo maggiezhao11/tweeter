@@ -6,8 +6,9 @@
 .tweets {
   display:flex;
   flex-direction:column;
-  padding: 2px;
-  margin: 2px;
+  padding: 10px;
+  margin: 5px;
+  border: 3px solid black;
 }
 
 .tweets:hover {
@@ -29,10 +30,11 @@ header.tweets-header {
 
 }
 
-header.tweets-header-left {
+header .tweets-header-left {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   /* height:20px; */
 }
 
@@ -53,7 +55,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   font-size: 10px;
-  font:bold;
+  font-weight: 900;
 }
 
 .icon {
