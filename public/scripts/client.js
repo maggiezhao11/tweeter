@@ -31,6 +31,10 @@ const data = [
 ]
 
 
+
+
+
+
 const renderTweets = function(tweets) {
   const $posts = $(".tweetsContainer");
   // loops through tweets
@@ -80,6 +84,28 @@ const createTweetElement = function(Data) {
 
 $(document).ready(function() {
   renderTweets(data);
+  const $postForm = $('#userInput');
+  console.log($postForm);
+  $postForm.on('submit', function (event) {
+    console.log("submitting form:");
+  // prevent the default browser behaviour
+  event.preventDefault();
+  // serialize the form data for submission to the server
+  const serializedData = $(this).serialize();
+  console.log(serializedData);
+  // submit serialized data to the server via a POST request to `/api/posts`
+  $.post('/tweets', serializedData)
+    .done(function(response) {
+      console.log(response);
+      //fetchPosts();
+      // clear the input fields of the form
+      $(this).children('input').val('');
+      // $('#title').val('');
+      // $('#content').val('');
+      // $('#authorId').val('');
+    });  
+});
+
 });
 
 
