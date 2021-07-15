@@ -5,33 +5,38 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 
 $(document).ready(function() {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   const loadTweets = () => {
     // make a GET request to `/tweets`
     $.ajax({
@@ -78,7 +83,7 @@ $(document).ready(function() {
         <span>${handle}</span>
       </div>
     </header>
-    <div class="text">${content.text}</div>
+    <div class="text">${escape(content.text)}</div>
     <footer>
       <div class="footerDisplay">
         <p>${daysAgo}</p>
@@ -104,12 +109,20 @@ $(document).ready(function() {
   //console.log($textValue.length > 140 );
   if ($textValue === "" ) {
     // return alert("the content is empty");
-       $("#alert-info").text("the content is empty").slideDown();
+       $("#alert-info").text("the content is empty").slideDown(() => {
+        setTimeout(() => {
+          $("#alert-info").slideUp()
+        }, 2000);
+       });
        return;
   }
   if ($textValue.length > 140) {
     // return alert("your content is over the maximum characters");
-     $("#alert-info").text("your content is over the maximum characters").slideDown()
+    $("#alert-info").text("your content is over the maximum characters").slideDown(() => {
+      setTimeout(() => {
+        $("#alert-info").slideUp()
+      }, 2000);
+     });
      return;
   } 
 

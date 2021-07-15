@@ -1,11 +1,11 @@
-body > header { 
+.main-header { 
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 400px;
   width: 100%;
   background-color:pink;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   font-weight: 900;
   background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
 }
@@ -15,4 +15,22 @@ body > header {
   justify-self: center;
   margin-top:100px;
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-header {
+    margin-top:70px;
+    width:30%;
+    height: 80%;
+    display:flex;
+    justify-content:start;
+  }
+  #header-avatar {
+    margin-top:60px;
+    margin-bottom:40px;
+  }
+  #name {
+    padding-bottom:20px ;
+  }
+
 }

@@ -36,7 +36,6 @@ header .tweets-header-left {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* height:20px; */
 }
 
 .text {
@@ -45,6 +44,7 @@ header .tweets-header-left {
   font-size: 18px;
   justify-content: flex-start;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .userAccount {

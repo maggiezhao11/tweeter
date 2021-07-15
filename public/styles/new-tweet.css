@@ -5,6 +5,7 @@
   position:sticky;
   top:200;
   padding-bottom: 50px;
+  margin-top:60px;
 }
 
 label {
@@ -12,6 +13,9 @@ label {
   border: 3px solid red;
   color: red;
   display:none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding:5px;
 }
 
 button {
@@ -39,6 +43,7 @@ output {
   outline: none;
   font-weight: 900;
   font-size:18px;
+  word-wrap: break-word;
 
 }
 

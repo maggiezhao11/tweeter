@@ -7,6 +7,7 @@ nav {
   justify-content: space-between;
   z-index: 9999;
   position:fixed;
+  top:0;
 }
 
 
@@ -27,3 +28,12 @@ nav i {
   padding-left: 60px;
   color: red;
 }
+
+@media only screen and (max-width: 1023px) {
+  nav {
+    height: 30px;
+    background-color: pink;
+    background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
+  }
+}
+
