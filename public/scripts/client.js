@@ -4,34 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
-
-
 $(document).ready(function() {
+  // use escape function to secure the userInput
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -55,11 +29,9 @@ $(document).ready(function() {
 
   const renderTweets = function(data) {
     $('.tweetsContainer').empty();
-    //const $posts = $(".tweetsContainer");
     // loops through tweets
     for (const id in data) {
       const $post = data[id];
-      //console.log($post);
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement($post)
       // takes return value and appends it to the tweets container
@@ -98,18 +70,15 @@ $(document).ready(function() {
   `;
     return $tweet;
   };
-  //renderTweets(data);
   loadTweets();
   const $postForm = $('#userInput');
-  //console.log($postForm);
   $postForm.on('submit', function (event) {
   // prevent the default browser behaviour
   event.preventDefault();
+  //set up userInput error message
   const $textValue = $("#tweet-text").val();
-  //console.log($textValue.length > 140 );
   if ($textValue === "" ) {
-    // return alert("the content is empty");
-       $("#alert-info").text("the content is empty").slideDown(() => {
+       $("#alert-info").text("Alert: the content is empty!").slideDown(() => {
         setTimeout(() => {
           $("#alert-info").slideUp()
         }, 2000);
@@ -117,8 +86,7 @@ $(document).ready(function() {
        return;
   }
   if ($textValue.length > 140) {
-    // return alert("your content is over the maximum characters");
-    $("#alert-info").text("your content is over the maximum characters").slideDown(() => {
+    $("#alert-info").text("Alert: your content is over the maximum characters!").slideDown(() => {
       setTimeout(() => {
         $("#alert-info").slideUp()
       }, 2000);
@@ -128,14 +96,12 @@ $(document).ready(function() {
 
   // serialize the form data for submission to the server
   const serializedData = $(this).serialize();
-  //console.log(serializedData);
 
   // submit serialized data to the server via a POST request to `/api/posts`
   $.post('/tweets', serializedData)
     .then(function(response) {
-      //console.log(response);
       loadTweets(response);
-      // clear the input fields of the form
+      // clear the input fields of the form after user tweets the form
       $('textarea').val('');
     });
   });
