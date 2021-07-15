@@ -9,7 +9,9 @@
 
 label {
   float: left;
-  border: 1px solid black;
+  border: 3px solid red;
+  color: red;
+  display:none;
 }
 
 button {
@@ -49,7 +51,3 @@ output {
   color:red;
 };
 
-.alert {
-  font: 20px 900 red;
-
-}

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#tweet-text").on('input', function() {
+    $("#alert-info").slideUp();
     const length = $(this).val().length;
     const counterNum = $(this).closest("#userInput").find(".counter")
     const newCounter = 140 - length;

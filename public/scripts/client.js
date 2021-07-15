@@ -101,13 +101,17 @@ $(document).ready(function() {
   // prevent the default browser behaviour
   event.preventDefault();
   const $textValue = $("#tweet-text").val();
-  console.log($textValue.length > 140 );
+  //console.log($textValue.length > 140 );
   if ($textValue === "" ) {
-    return alert("the content is empty");
-  } 
-  if ($textValue.length > 140) {
-    return alert("your content is over the maximum characters");
+    // return alert("the content is empty");
+       $("#alert-info").text("the content is empty").slideDown();
+       return;
   }
+  if ($textValue.length > 140) {
+    // return alert("your content is over the maximum characters");
+     $("#alert-info").text("your content is over the maximum characters").slideDown()
+     return;
+  } 
 
   // serialize the form data for submission to the server
   const serializedData = $(this).serialize();
@@ -119,14 +123,9 @@ $(document).ready(function() {
       //console.log(response);
       loadTweets(response);
       // clear the input fields of the form
-      //$(this).children('input').val('');
-      $('#tweet-text').each(function(){
-        this.reset();
-      });
+      $('textarea').val('');
     });
   });
 
-
 });
-
 

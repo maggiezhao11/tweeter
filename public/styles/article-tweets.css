@@ -1,6 +1,6 @@
 .tweetsContainer {
   width:90%;
-  border: 2px solid rgb(0, 0, 0);
+  border: 0px solid rgb(0, 0, 0);
 }
 
 .tweets {
@@ -9,6 +9,7 @@
   padding: 10px;
   margin: 5px;
   border: 3px solid black;
+  width: 100%;
 }
 
 .tweets:hover {
