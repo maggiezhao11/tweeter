@@ -4,6 +4,7 @@
   width: 90%;
   position:sticky;
   top:200;
+  padding-bottom: 50px;
 }
 
 label {
@@ -16,10 +17,12 @@ button {
   color: #FFFF;
   font-family:'Bungee', cursive;
   float: left;
+  font-size: 18px;
 }
 output {
   float: right;
   font-family:'Bungee', cursive;
+  font-size: 18px;
 }
 
 .text-area {
@@ -32,7 +35,14 @@ output {
   background-color: transparent;
   resize: none;
   outline: none;
+  font-weight: 900;
+  font-size:18px;
 
+}
+
+#tweet-text {
+  margin-top: 10px;
+  padding-bottom: 0px;
 }
 
 .colorRed {

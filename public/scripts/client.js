@@ -31,57 +31,68 @@ const data = [
 ]
 
 
-
-
-
-
-const renderTweets = function(tweets) {
-  const $posts = $(".tweetsContainer");
-  // loops through tweets
-  for (const id in data) {
-    const $post = data[id];
-    //console.log($post);
-    // calls createTweetElement for each tweet
-    const $tweet = createTweetElement($post)
-    // takes return value and appends it to the tweets container
-    $('.tweetsContainer').append($tweet)
-  }
-};
-
-
-const createTweetElement = function(Data) {
-  const { content, created_at } = Data;
-  const { name, avatars, handle} = Data.user;
-  const daysAgo = timeago.format(created_at);
-  let $tweet = `
-<article class="tweets">
-  <header class="tweets-header">
-    <div class="tweets-header-left">
-      <img src="${avatars}" />
-      <span>${name}</span>
-    </div>
-    <div class="userAccount">
-      <span>${handle}</span>
-    </div>
-  </header>
-  <div class="text">${content.text}</div>
-  <footer>
-    <div class="footerDisplay">
-      <p>${daysAgo}</p>
-      <div class="icon">
-        <i class="fas fa-flag"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="fas fa-heart"></i>
-      </div>
-    </div>
-  </footer>
-</article>
-`;
-  return $tweet;
-};
-
-
 $(document).ready(function() {
+  const loadTweets = () => {
+    // make a GET request to `/tweets`
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        renderTweets(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  };
+
+
+  const renderTweets = function(data) {
+    $('.tweetsContainer').empty();
+    //const $posts = $(".tweetsContainer");
+    // loops through tweets
+    for (const id in data) {
+      const $post = data[id];
+      //console.log($post);
+      // calls createTweetElement for each tweet
+      const $tweet = createTweetElement($post)
+      // takes return value and appends it to the tweets container
+      $('.tweetsContainer').prepend($tweet)
+    }
+  };
+  
+  
+  const createTweetElement = function(Data) {
+    const { content, created_at } = Data;
+    const { name, avatars, handle} = Data.user;
+    const daysAgo = timeago.format(created_at);
+    let $tweet = `
+  <article class="tweets">
+    <header class="tweets-header">
+      <div class="tweets-header-left">
+        <img src="${avatars}" />
+        <span>${name}</span>
+      </div>
+      <div class="userAccount">
+        <span>${handle}</span>
+      </div>
+    </header>
+    <div class="text">${content.text}</div>
+    <footer>
+      <div class="footerDisplay">
+        <p>${daysAgo}</p>
+        <div class="icon">
+          <i class="fas fa-flag"></i>
+          <i class="fas fa-retweet"></i>
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+    </footer>
+  </article>
+  `;
+    return $tweet;
+  };
   //renderTweets(data);
   loadTweets();
   const $postForm = $('#userInput');
@@ -106,28 +117,15 @@ $(document).ready(function() {
   $.post('/tweets', serializedData)
     .then(function(response) {
       //console.log(response);
-      loadTweets();
+      loadTweets(response);
       // clear the input fields of the form
-      $(this).children('input').val('');
-      // $('#title').val('');
-      // $('#content').val('');
-      // $('#authorId').val('');
+      //$(this).children('input').val('');
+      $('#tweet-text').each(function(){
+        this.reset();
+      });
     });
   });
-  const loadTweets = () => {
-    // make a GET request to `/tweets`
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      dataType: 'json',
-      success: (data) => {
-        renderTweets(data);
-      },
-      error: (error) => {
-        console.error(error);
-      }
-    });
-  };
+
 
 });
 
