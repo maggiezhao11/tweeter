@@ -48,3 +48,8 @@ output {
 .colorRed {
   color:red;
 };
+
+.alert {
+  font: 20px 900 red;
+
+}
