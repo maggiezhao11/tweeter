@@ -49,7 +49,6 @@ const renderTweets = function(tweets) {
 };
 
 
-
 const createTweetElement = function(Data) {
   const { content, created_at } = Data;
   const { name, avatars, handle} = Data.user;
@@ -83,38 +82,53 @@ const createTweetElement = function(Data) {
 
 
 $(document).ready(function() {
-  renderTweets(data);
+  //renderTweets(data);
+  loadTweets();
   const $postForm = $('#userInput');
-  console.log($postForm);
+  //console.log($postForm);
   $postForm.on('submit', function (event) {
-    console.log("submitting form:");
   // prevent the default browser behaviour
   event.preventDefault();
+  const $textValue = $("#tweet-text").val();
+  console.log($textValue.length > 140 );
+  if ($textValue === "" ) {
+    return alert("the content is empty");
+  } 
+  if ($textValue.length > 140) {
+    return alert("your content is over the maximum characters");
+  }
+
   // serialize the form data for submission to the server
   const serializedData = $(this).serialize();
-  console.log(serializedData);
+  //console.log(serializedData);
+
   // submit serialized data to the server via a POST request to `/api/posts`
   $.post('/tweets', serializedData)
-    .done(function(response) {
-      console.log(response);
-      //fetchPosts();
+    .then(function(response) {
+      //console.log(response);
+      loadTweets();
       // clear the input fields of the form
       $(this).children('input').val('');
       // $('#title').val('');
       // $('#content').val('');
       // $('#authorId').val('');
-    });  
-});
+    });
+  });
+  const loadTweets = () => {
+    // make a GET request to `/tweets`
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        renderTweets(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+  };
 
 });
-
-
-
-// $(document).ready(function() {
-//   const $tweet = createTweetElement(tweetData);
-//   // Test / driver code (temporary)
-//   console.log($tweet); // to see what it looks like
-//   $('.tweetsContainer').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.  
-// });
 
 
