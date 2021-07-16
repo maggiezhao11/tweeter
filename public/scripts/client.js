@@ -104,7 +104,10 @@ $(document).ready(function() {
       // clear the input fields of the form after user tweets the form
       $('textarea').val('');
     });
+    const counterNum = $(this).closest("#userInput").find(".counter")
+    counterNum.text('140');
   });
+
 
 });
 

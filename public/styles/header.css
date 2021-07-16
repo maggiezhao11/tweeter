@@ -13,13 +13,13 @@
 #header-avatar {
   height: 160px;
   justify-self: center;
-  margin-top:100px;
+  margin-top:20px;
   margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 1024px) {
   .main-header {
-    margin-top:-90px;
+    margin-top:60px;
     margin-left:70px;
     width:30%;
     height: 80%;
