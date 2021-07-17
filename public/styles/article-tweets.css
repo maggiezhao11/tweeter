@@ -1,63 +1,63 @@
-.tweetsContainer {
+.tweets-container {
   width:90%;
-  border: 0px solid rgb(0, 0, 0);
+  border:0px solid rgb(0, 0, 0);
 }
 
 .tweets {
   display:flex;
   flex-direction:column;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 3px solid black;
-  width: 100%;
+  padding:10px;
+  margin-top:20px;
+  margin-bottom:20px;
+  border:3px solid black;
+  width:100%;
 }
 
 .tweets:hover {
-  box-shadow: 5px 5px aqua;
+  box-shadow:5px 5px aqua;
 }
 
 .tweets img {
-  height: 40px;
+  height:40px;
 }
 .tweets span {
-  font-size: 18px;
+  font-size:18px;
 }
 header.tweets-header {
   display:flex;
   justify-content:space-between;
-  flex-direction: row;
-  align-items: center;
-  flex-grow: 1;
+  flex-direction:row;
+  align-items:center;
+  flex-grow:1;
 
 }
 
 header .tweets-header-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .text {
-  border-bottom: 3px solid #000;
-  padding: 10px;
-  font-size: 18px;
-  justify-content: flex-start;
-  text-align: left;
-  word-wrap: break-word;
+  border-bottom:3px solid #000;
+  padding:10px;
+  font-size:18px;
+  justify-content:flex-start;
+  text-align:left;
+  word-wrap:break-word;
 }
 
-.userAccount {
+.user-account {
   color:lightgrey;
 }
 
 footer {
   display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 10px;
-  font-weight: 900;
+  flex-direction:row;
+  justify-content:space-between;
+  font-size:10px;
+  font-weight:900;
 }
 
 .icon {
@@ -69,31 +69,47 @@ footer {
 
 .icon i {
   color:#4056A1;
-  justify-content: flex-end;
-  padding-left: 10px;
+  justify-content:flex-end;
+  padding-left:10px;
 }
 
 footer p {
-  justify-content: flex-start;
+  justify-content:flex-start;
 
 }
 
-.footerDisplay {
+.footer-display {
   width:100%;
   display:flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction:row;
+  justify-content:space-between;
   align-items:center;
-
 }
 
 #back-top {
   bottom:0;
   right:0;
   position:fixed;
-  font-size: 30px;
+  font-size:50px;
   color:red;
+  margin:20px;
+  transform: translatey(0px);
+  animation: float 4s ease-in-out infinite;
 }
+
 #back-top:hover {
   color:goldenrod;
 }
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+

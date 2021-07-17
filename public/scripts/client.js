@@ -27,14 +27,14 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(data) {
-    $(".tweetsContainer").empty();
+    $(".tweets-container").empty();
     // loops through tweets
     for (const id in data) {
       const $post = data[id];
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement($post);
       // takes return value and appends it to the tweets container
-      $(".tweetsContainer").prepend($tweet);
+      $(".tweets-container").prepend($tweet);
     }
   };
 
@@ -49,13 +49,13 @@ $(document).ready(function() {
         <img src="${avatars}" />
         <span>${name}</span>
       </div>
-      <div class="userAccount">
+      <div class="user-account">
         <span>${handle}</span>
       </div>
     </header>
     <div class="text">${escape(content.text)}</div>
     <footer>
-      <div class="footerDisplay">
+      <div class="footer-display">
         <p>${daysAgo}</p>
         <div class="icon">
           <i class="fas fa-flag"></i>
@@ -69,7 +69,7 @@ $(document).ready(function() {
     return $tweet;
   };
   loadTweets();
-  const $postForm = $("#userInput");
+  const $postForm = $("#user-input");
   $postForm.on("submit", function(event) {
     // prevent the default browser behaviour
     event.preventDefault();
@@ -77,7 +77,7 @@ $(document).ready(function() {
     const $textValue = $("#tweet-text").val();
     if ($textValue === "") {
       $("#alert-info")
-        .text("Alert: the content is empty!")
+        .text("Alert : the content is empty!")
         .slideDown(() => {
           setTimeout(() => {
             $("#alert-info").slideUp();
@@ -87,7 +87,7 @@ $(document).ready(function() {
     }
     if ($textValue.length > 140) {
       $("#alert-info")
-        .text("Alert: your content is over the maximum characters!")
+        .text("Alert : your content is over the maximum character limit!")
         .slideDown(() => {
           setTimeout(() => {
             $("#alert-info").slideUp();
@@ -105,7 +105,7 @@ $(document).ready(function() {
       // clear the input fields of the form after user tweets the form
       $("textarea").val("");
     });
-    const counterNum = $(this).closest("#userInput").find(".counter");
+    const counterNum = $(this).closest("#user-input").find(".counter");
     counterNum.text("140");
   });
 });

@@ -17,7 +17,7 @@ nav {
   padding-top: 20px;
   padding-left: 1.5em;
 }
-.rightTop {
+.right-top {
   padding-top: 20px;
   padding-right: 1.5em;
   display: flex;
@@ -45,7 +45,7 @@ nav i {
 }
 
 
-.newTweet:hover {
+.new-tweets:hover {
   color:purple;
 }
 

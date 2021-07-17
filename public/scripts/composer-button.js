@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".newTweet").on("click", function () {
+  $(".new-tweets").on("click", function () {
     $(".new-tweet").toggle();
     $("#tweet-text").focus();
   });
@@ -8,7 +8,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#back-top").hide();
   $(window).on("scroll", function () {
-    let showAfter = 100;
+    let showAfter = 100; // this line to show if the screen scroll down after 100px;
     if ($(this).scrollTop() > showAfter) {
       $("#back-top").show();
     } else {
@@ -16,7 +16,7 @@ $(document).ready(function () {
     }
   });
   $("#back-top").on("click", function () {
-    $(window).scrollTop();
+    $(window).scrollTop(0); //bring back screen to xCoords = 0;
     $("#tweet-text").focus();
   });
 });

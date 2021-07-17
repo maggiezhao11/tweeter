@@ -29,4 +29,4 @@ This repository is the starter code for the project: Students will fork and clon
 - Set up responsive design on this app in order to fit different types of devices
 - Hide / show the new tweets text area by click a compose button on the right top side of nav bar.
 - Hide / show the back-to-top arrow icon at the right bottom of the screen which brings user back to the top of the page.
-- add animation effects for the right top arrow icon.
+- add animation effect for the right top arrow icon and the right bottom arrow.
