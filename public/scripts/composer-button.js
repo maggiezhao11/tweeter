@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".new-tweets").on("click", function () {
+  $("#trigger").on("click", function () {
     $(".new-tweet").toggle();
     $("#tweet-text").focus();
   });

@@ -32,6 +32,10 @@ nav i {
 	animation: float 4s ease-in-out infinite;
 }
 
+nav i:hover {
+  color:goldenrod;
+}
+
 @keyframes float {
 	0% {
 		transform: translatey(0px);
@@ -45,9 +49,6 @@ nav i {
 }
 
 
-.new-tweets:hover {
-  color:purple;
-}
 
 @media only screen and (max-width: 1023px) {
   nav {
