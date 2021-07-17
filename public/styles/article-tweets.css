@@ -65,6 +65,7 @@ footer {
 }
 .icon i:hover {
   color:goldenrod;
+  cursor:pointer; 
 }
 
 .icon i {

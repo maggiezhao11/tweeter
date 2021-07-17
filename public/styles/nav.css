@@ -34,6 +34,7 @@ nav i {
 
 nav i:hover {
   color:goldenrod;
+  cursor:pointer; 
 }
 
 @keyframes float {
